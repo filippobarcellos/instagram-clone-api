@@ -1,8 +1,9 @@
-import express, { Router } from 'express';
-import cors from 'cors';
-import { PrismaClient } from '@prisma/client';
-import routes from './routes';
-import uploadConfig from './config/upload';
+const express,
+  { Router } = require('express');
+const cors = require('cors');
+const { PrismaClient } = require('@prisma/client');
+const routes = require('./routes');
+const uploadConfig = require('./config/upload');
 
 const prisma = new PrismaClient();
 const app = express();

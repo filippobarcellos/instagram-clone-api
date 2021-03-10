@@ -1,7 +1,7 @@
-import path from 'path';
-import fs from 'fs';
-import { PrismaClient } from '@prisma/client';
-import uploadConfig from '../config/upload';
+const path = require('path');
+const fs = require('fs');
+const { PrismaClient } = require('@prisma/client');
+const uploadConfig = require('../config/upload');
 
 const prisma = new PrismaClient();
 

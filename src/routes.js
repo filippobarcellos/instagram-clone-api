@@ -8,12 +8,12 @@ import SessionController from './Controllers/Session';
 import AvatarController from './Controllers/Avatar';
 import FollowController from './Controllers/Follow';
 import ProfileController from './Controllers/Profile';
-import PostController from './Controllers/Post';
-import FeedController from './Controllers/Feed';
-import LikeController from './Controllers/Like';
-import CommentController from './Controllers/Comment';
+const PostController = require('./Controllers/Post');
+const FeedController = require('./Controllers/Feed');
+const LikeController = require('./Controllers/Like');
+const CommentController = require('./Controllers/Comment');
 
-import ensureAuth from './middlewares/auth';
+const ensureAuth = require('./middlewares/auth');
 
 const routes = Router();
 const upload = multer(uploadConfig);

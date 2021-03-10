@@ -8,9 +8,7 @@
     "start": "src/app.js"
   },
   "devDependencies": {
-    "nodemon": "^2.0.7",
-    "prisma": "2.18.0",
-    "sucrase": "^3.17.1"
+    "prisma": "2.18.0"
   },
   "dependencies": {
     "@prisma/client": "^2.18.0",
