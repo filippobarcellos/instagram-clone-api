@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Post" ADD COLUMN     "likesCount" INTEGER NOT NULL DEFAULT 0,
+ADD COLUMN     "isLiked" BOOLEAN NOT NULL DEFAULT false;
