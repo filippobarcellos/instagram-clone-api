@@ -13,4 +13,4 @@ app.use(express.json());
 app.use(routes);
 app.use('/files', express.static(uploadConfig.directory));
 
-app.listen(3333, () => console.log('server is running'));
+app.listen(process.env.PORT, () => console.log('server is running'));
