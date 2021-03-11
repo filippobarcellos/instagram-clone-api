@@ -1,13 +1,13 @@
-import { Router } from 'express';
-import multer from 'multer';
+const { Router } = require('express');
+const multer = require('multer');
 
-import uploadConfig from './config/upload';
+const uploadConfig = require('./config/upload');
 
-import UserController from './Controllers/User';
-import SessionController from './Controllers/Session';
-import AvatarController from './Controllers/Avatar';
-import FollowController from './Controllers/Follow';
-import ProfileController from './Controllers/Profile';
+const UserController = require('./Controllers/User');
+const SessionController = require('./Controllers/Session');
+const AvatarController = require('./Controllers/Avatar');
+const FollowController = require('./Controllers/Follow');
+const ProfileController = require('./Controllers/Profile');
 const PostController = require('./Controllers/Post');
 const FeedController = require('./Controllers/Feed');
 const LikeController = require('./Controllers/Like');
@@ -63,4 +63,4 @@ routes.delete('/api/posts/:id/unlike', ensureAuth, LikeController.delete);
 // Comment
 routes.post('/api/posts/:id/comment', ensureAuth, CommentController.store);
 
-export default routes;
+module.exports = routes;

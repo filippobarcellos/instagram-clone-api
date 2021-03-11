@@ -1,7 +1,7 @@
 const { verify } = require('jsonwebtoken');
 const authConfig = require('../config/auth');
 
-export default function (req, res, next) {
+module.exports = function (req, res, next) {
   const authHeader = req.headers.authorization;
 
   if (!authHeader) {
@@ -18,4 +18,4 @@ export default function (req, res, next) {
   } catch {
     throw new Error('Token invalid.');
   }
-}
+};

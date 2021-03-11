@@ -1,5 +1,4 @@
-const express,
-  { Router } = require('express');
+const express = require('express');
 const cors = require('cors');
 const { PrismaClient } = require('@prisma/client');
 const routes = require('./routes');
@@ -7,7 +6,6 @@ const uploadConfig = require('./config/upload');
 
 const prisma = new PrismaClient();
 const app = express();
-const routes = Router();
 
 app.use(cors());
 app.use(express.json());
