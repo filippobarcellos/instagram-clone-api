@@ -5,6 +5,7 @@
   "author": "Filippo Barcellos",
   "license": "MIT",
   "scripts": {
+    "build": "prisma generate",
     "start": "src/app.js"
   },
   "devDependencies": {
