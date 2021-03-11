@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "prisma generate",
-    "start": "node src/app.js"
+    "start": "node src/index.js"
   },
   "devDependencies": {
     "prisma": "2.18.0"
