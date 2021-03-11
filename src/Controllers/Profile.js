@@ -53,6 +53,9 @@ exports.index = async (req, res) => {
         email: true,
         image: true,
         posts: {
+          orderBy: {
+            createdAt: 'desc',
+          },
           include: {
             comments: true,
           },

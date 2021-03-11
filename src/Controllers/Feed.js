@@ -25,6 +25,9 @@ exports.list = async (req, res) => {
           in: usersFollowed,
         },
       },
+      orderBy: {
+        createdAt: 'desc',
+      },
       include: {
         user: {
           select: {
