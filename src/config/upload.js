@@ -1,18 +1,25 @@
 const multer = require('multer');
-const path = require('path');
-const crypto = require('crypto');
 
-const tmpFolder = path.resolve(__dirname, '..', '..', 'tmp');
+const cloudinary = require('cloudinary').v2;
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
 
-module.exports = {
-  directory: tmpFolder,
-  storage: multer.diskStorage({
-    destination: tmpFolder,
-    filename(req, file, cb) {
-      const fileHash = crypto.randomBytes(10).toString('HEX');
-      const fileName = `${fileHash}-${file.originalname}`;
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
-      return cb(null, fileName);
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: (req, file) => 'instaclone',
+    format: async (req, file) => {
+      return 'jpg';
     },
-  }),
-};
+    public_id: (req, file) => Math.random(),
+  },
+});
+
+const parser = multer({ storage: storage });
+
+module.exports = parser;

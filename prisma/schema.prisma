@@ -28,6 +28,7 @@ model Post {
   id          Int       @id @default(autoincrement())
   description String
   image       String
+  imageId     String
   user        User      @relation(fields: [userId], references: [id])
   userId      Int
   likes       Like[]
@@ -41,10 +42,11 @@ model User {
   id         Int       @id @default(autoincrement())
   email      String    @unique
   password   String
-  fullName   String?
+  fullName   String
   username   String
   bio        String?
   image      String?
+  imageId    String?
   posts      Post[]
   followedBy User[]    @relation("UserFollows")
   following  User[]    @relation("UserFollows")

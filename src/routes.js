@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const multer = require('multer');
 
-const uploadConfig = require('./config/upload');
+const parser = require('./config/upload');
 
 const UserController = require('./Controllers/User');
 const SessionController = require('./Controllers/Session');
@@ -16,7 +16,6 @@ const CommentController = require('./Controllers/Comment');
 const ensureAuth = require('./middlewares/auth');
 
 const routes = Router();
-const upload = multer(uploadConfig);
 
 // Users
 routes.post('/api/users', UserController.store);
@@ -32,7 +31,7 @@ routes.put('/api/users/:id/unfollow', ensureAuth, FollowController.unfollow);
 routes.patch(
   '/api/users/avatar',
   ensureAuth,
-  upload.single('image'),
+  parser.single('image'),
   AvatarController.update
 );
 
@@ -47,10 +46,9 @@ routes.get('/api/profiles/:username', ensureAuth, ProfileController.index);
 routes.post(
   '/api/posts',
   ensureAuth,
-  upload.single('image'),
+  parser.single('image'),
   PostController.store
 );
-
 routes.get('/api/posts/:id', ensureAuth, PostController.index);
 
 // Feed

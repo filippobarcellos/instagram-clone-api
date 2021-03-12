@@ -11,11 +11,11 @@ exports.store = async (req, res) => {
     if (!user) {
       return res.status(401).json({ error: 'user does not exist' });
     }
-
     const newPost = await prisma.post.create({
       data: {
-        ...req.body,
-        image: req.file.filename,
+        description: req.body.description,
+        image: req.file.path,
+        imageId: req.file.filename,
         user: {
           connect: {
             id: Number(req.userId),
