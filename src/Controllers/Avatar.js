@@ -25,7 +25,7 @@ exports.update = async (req, res) => {
       return res.status(400).json({ error: 'User not found' });
     }
 
-    await prisma.user.update({
+    const updatedUser = await prisma.user.update({
       where: {
         id: Number(req.userId),
       },
@@ -35,7 +35,7 @@ exports.update = async (req, res) => {
       },
     });
 
-    return res.status(200).json(user);
+    return res.status(200).json(updatedUser);
   } catch (error) {
     console.log(error.message);
   }
